@@ -1,0 +1,59 @@
+from tkinter import *
+root = Tk()
+root.title("Main Window")
+root.geometry("300x200")
+root.resizable(False, False)
+root.eval('tk::PlaceWindow . center')
+
+
+menuB = Menu(root)
+tageBar_L = Menu(menuB, tearoff=0)
+menuB.add_cascade(label="Exit", command=root.quit)
+
+menuB.add_cascade(label="Hosszúság", menu=tageBar_L)
+tageBar_L.add_command(label="Milliméter")
+tageBar_L.add_command(label="Centiméter")
+tageBar_L.add_command(label="Méter")
+tageBar_L.add_command(label="Kilométer")
+tageBar_L.add_separator()
+tageBar_L.add_command(label="Mérföld")
+tageBar_L.add_command(label="Yard")
+
+
+tageBar_VoW = Menu(menuB, tearoff=0)
+menuB.add_cascade(label="Téfogat", menu=tageBar_VoW)
+tageBar_VoW.add_command(label="Milliliter")
+tageBar_VoW.add_command(label="Centiliter")
+tageBar_VoW.add_command(label="Deciliter")
+tageBar_VoW.add_command(label="Liter")
+tageBar_VoW.add_separator()
+tageBar_VoW.add_command(label="Köbmilli")
+tageBar_VoW.add_command(label="Köbcenti")
+tageBar_VoW.add_command(label="Köbdeci")
+tageBar_VoW.add_command(label="Köbméter")
+
+
+tageBar_W = Menu(menuB, tearoff=0)
+menuB.add_cascade(label="Tömeg", menu=tageBar_W)
+tageBar_W.add_command(label="Gramm")
+tageBar_W.add_command(label="Dekagramm")
+tageBar_W.add_command(label="Kilogramm")
+tageBar_W.add_separator()
+tageBar_W.add_command(label="Font")
+tageBar_W.add_command(label="Uncia")
+
+
+tageBar_T = Menu(menuB, tearoff=0)
+menuB.add_cascade(label="Idő", menu=tageBar_T)
+tageBar_T.add_command(label="Másodperc")
+tageBar_T.add_command(label="Perc")
+tageBar_T.add_command(label="Óra")
+tageBar_T.add_separator()
+tageBar_T.add_command(label="Nap")
+tageBar_T.add_command(label="Hét")
+tageBar_T.add_command(label="Hónap")
+tageBar_T.add_command(label="Év")
+
+root.config(menu=menuB)
+
+root.mainloop()
