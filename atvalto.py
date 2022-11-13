@@ -49,6 +49,8 @@ def Lenght():
                 res[3] = num*(pow(10, -5))
                 res[4] = num*0.011
                 res[5] = num*(6.214*(pow(10, -6)))
+                click += 1
+                
         elif click == 1:
             lbMilli_RES.config(text=" ")
             lbCenti_RES.config(text=" ")
