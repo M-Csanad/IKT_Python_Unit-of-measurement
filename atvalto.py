@@ -159,9 +159,10 @@ def Weight():
 
 def Time():
     
+    global click
     rootT = Tk()
     rootT.title("Idő")
-    rootT.geometry("300x200")
+    rootT.geometry("300x400")
     rootT.resizable(False, False)
     rootT.eval('tk::PlaceWindow . center')
     rootT.configure(background='#0c2327')
@@ -175,8 +176,119 @@ def Time():
     drop.config(bg="#0c2327", fg="#72c4d4", activebackground="#153e45", activeforeground="#72c4d4")
     drop["menu"].config(bg="#0c2327", fg="#72c4d4", activebackground="#153e45", activeforeground="#72c4d4")
 
+    click = 0
+    tim = [float(0), float(0), float(0), float(0), float(0), float(0), float(0)]
     def Calc():
-        None
+        global click, lbMasodp_TIM, lbPerc_TIM, lbOra_TIM, lbNap_TIM, lbHet_TIM, lbHonap_TIM, lbEv_TIM   
+        num = float(ent.get())
+        type = menu.get()
+        if click == 0:
+            btnCalc.config(text="Visszaállítás")
+            if type == "Nap":
+                tim[3] = num
+                tim[0] = num*86400
+                tim[1] = num*1440
+                tim[2] = num*24
+                tim[4] = num*0.1429
+                tim[5] = num*0.0323
+                tim[6] = num*(2.7*(pow(10,-3)))
+                click += 1
+            elif type == "Perc":
+                tim[0] = num*60
+                tim[1] = num
+                tim[2] = num*0.0167
+                tim[3] = num*(7*(pow(10,-4)))
+                tim[4] = num*(pow(10,-4))
+                tim[5] = num*(2.2401*(pow(10,-5)))
+                tim[6] = num*(1.9026*(pow(10,-6)))
+                click += 1
+            elif type == "Másodperc":
+                tim[0] = num
+                tim[1] = num*0.0167
+                tim[2] = num*(3*(pow(10,-4)))
+                tim[3] = num*(1.1574*(pow(10,-5)))
+                tim[4] = num*(1.6534*(pow(10,-4)))
+                tim[5] = num*(3.7336*(pow(10,-7)))
+                tim[6] = num*(3.171*(pow(10,-8)))
+                click += 1
+            elif type == "Óra":
+                tim[0] = num*3600
+                tim[1] = num*60
+                tim[2] = num
+                tim[3] = num*0.0417
+                tim[4] = num*0.006
+                tim[5] = num*0.0013
+                tim[6] = num*(pow(10,-4))
+                click += 1
+            elif type == "Hét":
+                tim[0] = num*604800
+                tim[1] = num*10080
+                tim[2] = num*168
+                tim[3] = num*7
+                tim[4] = num
+                tim[5] = num*0.2258
+                tim[6] = num*0.0192
+                click += 1
+            elif type == "Hónap":
+                tim[0] = num*2678400
+                tim[1] = num*44640
+                tim[2] = num*744
+                tim[3] = num*31
+                tim[4] = num*4.4286
+                tim[5] = num
+                tim[6] = num*0.0849
+                click += 1
+            elif type == "Év":
+                tim[0] = num*31536000
+                tim[1] = num*525600
+                tim[2] = num*8760
+                tim[3] = num*365
+                tim[4] = num*52,1429
+                tim[5] = num*11,7742
+                tim[6] = num
+                click += 1
+                
+        elif click == 1:
+            lbMasodp_TIM.config(text=" ")
+            lbPerc_TIM.config(text=" ")
+            lbOra_TIM.config(text=" ")
+            lbNap_TIM.config(text=" ")
+            lbHet_TIM.config(text=" ")
+            lbHonap_TIM.config(text=" ")
+            lbEv_TIM.config(text=" ")
+            btnCalc.config(text="Számol")
+            click = 0
+            return
+
+        lbMasodp = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Másodperc: ")
+        lbMasodp_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[0])
+        lbPerc = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Perc: ")
+        lbPerc_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[1])
+        lbOra = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Óra: ")
+        lbOra_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[2])
+        lbNap = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Nap: ")
+        lbNap_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[3])
+        lbHet = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Hét: ")
+        lbHet_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[4])
+        lbHonap = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Hónap: ")
+        lbHonap_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[5])
+        lbEv = Label(rootT, bg="#0c2327", fg="#72c4d4", text="Év: ")
+        lbEv_TIM = Label(rootT, bg="#0c2327", fg="#72c4d4", text=tim[6])
+
+        lbMasodp.grid(row=1, column=0, sticky=W, padx=2, pady=5)
+        lbMasodp_TIM.grid(row=1, column=1, sticky=E, padx=2, pady=5)
+        lbPerc.grid(row=2, column=0, sticky=W, padx=2, pady=5)
+        lbPerc_TIM.grid(row=2, column=1, sticky=E, padx=2, pady=5)
+        lbOra.grid(row=3, column=0, sticky=W, padx=2, pady=5)
+        lbOra_TIM.grid(row=3, column=1, sticky=E, padx=2, pady=5)
+        lbNap.grid(row=4, column=0, sticky=W, padx=2, pady=5)
+        lbNap_TIM.grid(row=4, column=1, sticky=E, padx=2, pady=5)
+        lbHet.grid(row=5, column=0, sticky=W, padx=2, pady=5)
+        lbHet_TIM.grid(row=5, column=1, sticky=E, padx=2, pady=5)
+        lbHonap.grid(row=6, column=0, sticky=W, padx=2, pady=5)
+        lbHonap_TIM.grid(row=6, column=1, sticky=E, padx=2, pady=5)
+        lbEv.grid(row=7, column=0, sticky=W, padx=2, pady=5)
+        lbEv_TIM.grid(row=7, column=1, sticky=E, padx=2, pady=5)
 
     btnCalc = Button(rootT, bg="#0c2327", fg="#72c4d4", activebackground="#153e45", activeforeground="#72c4d4", borderwidth=0, width=20, height=2, text="Számol", command=Calc)
     btnExit = Button(rootT, bg="#0c2327", fg="#72c4d4", activebackground="#153e45", activeforeground="#72c4d4", borderwidth=0, width=20, height=2, text="Exit", command=rootT.destroy)
@@ -184,8 +296,8 @@ def Time():
 
     ent.grid(row=0, column=0, sticky=W, padx=2, pady=5)
     drop.grid(row=0, column=1, sticky=E, padx=2, pady=5)
-    btnCalc.grid(row=1, column=0, columnspan=2, sticky=EW, padx=2, pady=5)
-    btnExit.grid(row=2, column=0, columnspan=2, sticky=EW, padx=2, pady=5)
+    btnCalc.grid(row=8, column=0, columnspan=2, sticky=EW, padx=2, pady=5)
+    btnExit.grid(row=9, column=0, columnspan=2, sticky=EW, padx=2, pady=5)
 
 #------------------------------------------------------------
 
