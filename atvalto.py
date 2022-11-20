@@ -42,6 +42,7 @@ def Lenght():
                 res[4] = num*0.0011
                 res[5] = num*(6.214*(pow(10, -7)))
                 click += 1
+
             elif type == "Centiméter":
                 res[0] = num*10
                 res[1] = num
@@ -50,6 +51,7 @@ def Lenght():
                 res[4] = num*0.011
                 res[5] = num*(6.214*(pow(10, -6)))
                 click += 1 
+
             elif type == "Méter":
                 res[0] = num*1000
                 res[1] = num*100
@@ -58,6 +60,7 @@ def Lenght():
                 res[4] = num*1.0936
                 res[5] = num*(6*pow(10, -4))
                 click += 1
+
             elif type == "Kilométer":
                 res[0] = num*pow(10, 6)
                 res[1] = num*pow(10, 5)
@@ -66,6 +69,7 @@ def Lenght():
                 res[4] = num*1093.61
                 res[5] = num*0.6214   
                 click += 1 
+
             elif type == "Yard":
                 res[0] = num*914
                 res[1] = num*91.44
@@ -74,6 +78,7 @@ def Lenght():
                 res[4] = num
                 res[5] = num*0.6214
                 click += 1
+
             elif type == "Mérföld":
                 res[0] = num*1609344
                 res[1] = num*160934.4
@@ -169,15 +174,81 @@ def Vol():
                 res[7] = num*pow(10, -6)
                 click += 1
             
-            if type == "Centiiliter": # <---  Please do it 
+            if type == "Centiliter": 
+                res[0] = num*10
+                res[1] = num
+                res[2] = num*0.1
+                res[3] = num*0.01
+                res[4] = num*pow(10, 4)
+                res[5] = num*10
+                res[6] = num*0.01
+                res[7] = num*pow(10, -5)
+                click += 1
+
+            if type == "Deciliter":  
+                res[0] = num*100
+                res[1] = num*10
+                res[2] = num
+                res[3] = num*0.1
+                res[4] = num*pow(10, 5)
+                res[5] = num*100
+                res[6] = num*0.1
+                res[7] = num*pow(10, -4)
+                click += 1
+
+            if type == "Liter":  
+                res[0] = num*1000
+                res[1] = num*100
+                res[2] = num*10
+                res[3] = num
+                res[4] = num*pow(10, 6)
+                res[5] = num*1000
+                res[6] = num
+                res[7] = num*pow(10, -3)
+                click += 1
+
+            if type == "Köbmilli":  
+                res[0] = num*0.001
+                res[1] = num*pow(10, -4)
+                res[2] = num*pow(10, -5)
+                res[3] = num*0.1
+                res[4] = num
+                res[5] = num*pow(10, -3)
+                res[6] = num*pow(10, -6)
+                res[7] = num*pow(10, -9)
+                click += 1
+
+            if type == "Köbcenti":  
                 res[0] = num
                 res[1] = num*0.1
                 res[2] = num*0.01
                 res[3] = num*0.001
-                res[4] = num*1000
+                res[4] = num*pow(10, 3)
                 res[5] = num
                 res[6] = num*0.001
                 res[7] = num*pow(10, -6)
+                click += 1
+
+            if type == "Köbdeci":  
+                res[0] = num*1000
+                res[1] = num*100
+                res[2] = num*10
+                res[3] = num
+                res[4] = num*pow(10, 6)
+                res[5] = num*1000
+                res[6] = num*1
+                res[7] = num*pow(10, -3)
+                click += 1
+
+            if type == "Köbméter":  
+                res[0] = num*pow(10, 6)
+                res[1] = num*pow(10, 5)
+                res[2] = num*pow(10, 4)
+                res[3] = num*1000
+                res[4] = num*pow(10, 9)
+                res[5] = num*pow(10, 6)
+                res[6] = num*pow(10, 3)
+                res[7] = num
                 click += 1
                 
         elif click == 1:
@@ -401,6 +472,7 @@ def Time():
                 tim[5] = num*0.0323
                 tim[6] = num*(2.7*(pow(10,-3)))
                 click += 1
+
             elif type == "Perc":
                 tim[0] = num*60
                 tim[1] = num
@@ -410,6 +482,7 @@ def Time():
                 tim[5] = num*(2.2401*(pow(10,-5)))
                 tim[6] = num*(1.9026*(pow(10,-6)))
                 click += 1
+
             elif type == "Másodperc":
                 tim[0] = num
                 tim[1] = num*0.0167
@@ -419,6 +492,7 @@ def Time():
                 tim[5] = num*(3.7336*(pow(10,-7)))
                 tim[6] = num*(3.171*(pow(10,-8)))
                 click += 1
+
             elif type == "Óra":
                 tim[0] = num*3600
                 tim[1] = num*60
@@ -428,6 +502,7 @@ def Time():
                 tim[5] = num*0.0013
                 tim[6] = num*(pow(10,-4))
                 click += 1
+
             elif type == "Hét":
                 tim[0] = num*604800
                 tim[1] = num*10080
@@ -437,6 +512,7 @@ def Time():
                 tim[5] = num*0.2258
                 tim[6] = num*0.0192
                 click += 1
+
             elif type == "Hónap":
                 tim[0] = num*2678400
                 tim[1] = num*44640
@@ -446,6 +522,7 @@ def Time():
                 tim[5] = num
                 tim[6] = num*0.0849
                 click += 1
+                
             elif type == "Év":
                 tim[0] = num*31536000
                 tim[1] = num*525600
